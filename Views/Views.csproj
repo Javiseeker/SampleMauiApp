@@ -57,13 +57,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\settings.png" />
+	  <None Remove="Resources\Images\telegram.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui.Markup" Version="4.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="MainPageView.xaml.cs">
+	  <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\MainPageView.xaml.cs">
 	    <DependentUpon>MainPageView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>

@@ -3,13 +3,34 @@
     x:Class="Views.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Views"
-    Shell.FlyoutBehavior="Disabled"
-    Title="Views">
+    xmlns:local="clr-namespace:Views.Pages"
+    FlyoutBehavior="Flyout"
+    Title="Sample Maui App">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPageView}"
-        Route="MainPageView" />
+    <FlyoutItem Title="Home" Route="home">
+        <ShellContent Title="Home" Route="homecontent" ContentTemplate="{DataTemplate local:MainPageView}" />
+    </FlyoutItem>
+    <FlyoutItem Title="CodeBehind" Route="code behind approach">
+        <ShellContent Title="CodeBehind" Route="codebehindcontent" ContentTemplate="{DataTemplate local:CodeBehindApproachView}" />
+    </FlyoutItem>
+
+    <!--<Tab Title="Home" Route="home" Icon="settings.png">
+        <ShellContent Route="homecontent" ContentTemplate="{DataTemplate local:MainPageView}" />
+    </Tab>
+
+    <Tab Title="CodeBehind" Route="code behind approach" Icon="telegram.png">
+        <ShellContent Route="codebehindcontent" ContentTemplate="{DataTemplate local:CodeBehindApproachView}" />
+    </Tab>-->
+    
+    <!--<TabBar >
+        <Tab Title="Home" Route="home" Icon="settings.png">
+            <ShellContent Route="homecontent" ContentTemplate="{DataTemplate local:MainPageView}" />
+        </Tab>
+
+        <Tab Title="CodeBehind" Route="code behind approach" Icon="telegram.png">
+            <ShellContent Route="codebehindcontent" ContentTemplate="{DataTemplate local:CodeBehindApproachView}" />
+        </Tab>
+    </TabBar>-->
+
 
 </Shell>
