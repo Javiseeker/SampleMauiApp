@@ -7,11 +7,17 @@
     FlyoutBehavior="Flyout"
     Title="Sample Maui App">
 
-    <FlyoutItem Title="Home" Route="home">
-        <ShellContent Title="Home" Route="homecontent" ContentTemplate="{DataTemplate local:MainPageView}" />
+    <FlyoutItem Title="From Scratch" Route="FromScratchView">
+        <ShellContent Title="From Scratch" Route="FromScratchView" ContentTemplate="{DataTemplate local:FromScratchView}" />
     </FlyoutItem>
+
     <FlyoutItem Title="CodeBehind" Route="code behind approach">
         <ShellContent Title="CodeBehind" Route="codebehindcontent" ContentTemplate="{DataTemplate local:CodeBehindApproachView}" />
+    </FlyoutItem>
+
+    
+    <FlyoutItem Title="Home" Route="home">
+        <ShellContent Title="Home" Route="homecontent" ContentTemplate="{DataTemplate local:MainPageView}" />
     </FlyoutItem>
 
     <!--<Tab Title="Home" Route="home" Icon="settings.png">
