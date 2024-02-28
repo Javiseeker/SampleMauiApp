@@ -8,7 +8,7 @@
     Title="Sample Maui App">
 
     <FlyoutItem Title="From Scratch" Route="FromScratchView">
-        <ShellContent Title="From Scratch" Route="FromScratchView" ContentTemplate="{DataTemplate local:FromScratchView}" />
+        <ShellContent Title="FromScratch" Route="FromScratchView" ContentTemplate="{DataTemplate local:FromScratchView}" />
     </FlyoutItem>
 
     <FlyoutItem Title="CodeBehind" Route="code behind approach">

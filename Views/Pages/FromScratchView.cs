@@ -13,8 +13,6 @@ public class FromScratchView : ContentPage
 		_fromScratchViewModel = fromScratchViewModel;
 		BindingContext = _fromScratchViewModel;
 
-
-
         #region MAUI Native Data Binding with MVVM
         var collectionView = new CollectionView() { HeightRequest = 295 };
 
@@ -40,11 +38,29 @@ public class FromScratchView : ContentPage
         });
         #endregion
 
-        var onPushGesture = new TapGestureRecognizer();
-        onPushGesture.Tapped += onPushBtnClick;
+        var pushGesture = new TapGestureRecognizer();
+        pushGesture.Tapped += onPushBtnClick;
 
-        var onPopGesture = new TapGestureRecognizer();
-        onPopGesture.Tapped += onPopBtnClick;
+        var popGesture = new TapGestureRecognizer();
+        popGesture.Tapped += onPopBtnClick;
+
+        var stackLGesture = new TapGestureRecognizer();
+        stackLGesture.Tapped += onTapEvent;
+
+        var vStackLGesture = new TapGestureRecognizer();
+        vStackLGesture.Tapped += onTapEvent;
+
+        var hStackLGesture = new TapGestureRecognizer();
+        hStackLGesture.Tapped += onTapEvent;
+
+        var aSLayoutLGesture = new TapGestureRecognizer();
+        aSLayoutLGesture.Tapped += onTapEvent;
+
+        var flexLayoutGesture = new TapGestureRecognizer();
+        flexLayoutGesture.Tapped += onTapEvent;
+
+        var gridGesture = new TapGestureRecognizer();
+        gridGesture.Tapped += onTapEvent;
 
         Content = new VerticalStackLayout
 		{
@@ -56,12 +72,12 @@ public class FromScratchView : ContentPage
 					Spacing = 5,
 					Children =
 					{
-                        new Button { Text="Stack Layout" },
-                        new Button { Text="Horizontal Stack Layout" },
-                        new Button { Text="Vertical Stack Layout" },
-                        new Button { Text="Absolute Layout" },
-                        new Button { Text="Flex Layout" },
-                        new Button { Text="Grid" },
+                        new Button { Text="Stack Layout", GestureRecognizers = { stackLGesture } },
+                        new Button { Text="Horizontal Stack Layout", GestureRecognizers = { hStackLGesture } },
+                        new Button { Text="Vertical Stack Layout", GestureRecognizers = { vStackLGesture } },
+                        new Button { Text="Absolute Layout", GestureRecognizers = { aSLayoutLGesture } },
+                        new Button { Text="Flex Layout", GestureRecognizers = { flexLayoutGesture } },
+                        new Button { Text="Grid", GestureRecognizers = { gridGesture } },
                     }
                     
 				}.Center(),
@@ -70,16 +86,8 @@ public class FromScratchView : ContentPage
                     Spacing = 20,
                     Children =
                     {
-                        new Button { Text="Push", GestureRecognizers =
-                            {
-                                onPushGesture
-                            }
-                        },
-                        new Button { Text="Pop", GestureRecognizers =
-                            {
-                                onPopGesture
-                            }
-                        }
+                        new Button { Text="Push", GestureRecognizers = { pushGesture } },
+                        new Button { Text="Pop", GestureRecognizers = { popGesture } }
                     }
 
                 }.Center(),
@@ -89,6 +97,42 @@ public class FromScratchView : ContentPage
             }
         };
 	}
+
+    private async void onTapEvent(object? sender, TappedEventArgs e)
+    {
+        var senderButton = sender as Button;
+
+        switch (senderButton!.Text)
+        {
+            case "Vertical Stack Layout":
+
+                await Shell.Current.GoToAsync($"{nameof(VerticalStackLayoutView)}", true);
+                break;
+
+            case "Horizontal Stack Layout":
+
+                await Shell.Current.GoToAsync($"{nameof(HorizontalStackLayoutView)}", true);
+                break;
+
+            case "Stack Layout":
+
+                await Shell.Current.GoToAsync($"{nameof(StackLayoutView)}", true);
+                break;
+
+            case "Flex Layout":
+
+                await Shell.Current.GoToAsync($"{nameof(FlexLayoutView)}", true);
+                break;
+            case "Absolute Layout":
+
+                await Shell.Current.GoToAsync($"{nameof(AbsoluteLayoutView)}", true);
+                break;
+            case "Grid":
+
+                await Shell.Current.GoToAsync($"{nameof(GridView)}", true);
+                break;
+        }
+    }
 
     private async void onPushBtnClick(object? sender, TappedEventArgs e)
     {

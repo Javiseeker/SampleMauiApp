@@ -46,6 +46,24 @@ namespace Views
             builder.Services.AddSingleton<FromScratchView>();
             builder.Services.AddSingleton<FromScratchViewModel>();
 
+            builder.Services.AddSingleton<AbsoluteLayoutView>();
+            builder.Services.AddSingleton<AbsoluteLayoutViewModel>();
+
+            builder.Services.AddSingleton<FlexLayoutView>();
+            builder.Services.AddSingleton<FlexLayoutViewModel>();
+
+            builder.Services.AddSingleton<StackLayoutView>();
+            builder.Services.AddSingleton<StackLayoutViewModel>();
+
+            builder.Services.AddSingleton<GridView>();
+            builder.Services.AddSingleton<GridViewModel>();
+
+            builder.Services.AddSingleton<VerticalStackLayoutView>();
+            builder.Services.AddSingleton<VerticalStackLayoutViewModel>();
+
+            builder.Services.AddSingleton<HorizontalStackLayoutView>();
+            builder.Services.AddSingleton<HorizontalStackLayoutViewModel>();
+
             builder.Services.AddSingleton<CodeBehindApproachView>();
             builder.Services.AddSingleton<CodeBehindApproachViewModel>();
 #if DEBUG

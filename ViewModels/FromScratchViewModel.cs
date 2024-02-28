@@ -1,10 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ViewModels;
 
 [ObservableRecipient]
-public partial class FromScratchViewModel: ObservableObject // , INotifyPropertyChanged
+public partial class FromScratchViewModel: ObservableObject, INotifyPropertyChanged
 {
     #region MAUI Community Toolkit
     [ObservableProperty]
@@ -27,6 +28,7 @@ public partial class FromScratchViewModel: ObservableObject // , INotifyProperty
         }
     }
 
+    // both the ObservableObject and INotifyPropertyChanged require this PropertyChanged.
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged(string propertyName)
