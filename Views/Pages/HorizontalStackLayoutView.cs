@@ -12,12 +12,17 @@ public class HorizontalStackLayoutView : ContentPage
 
 		Title = "HorizontalStackLayoutView";
 
-        Content = new VerticalStackLayout
-		{
-			Children = {
-				new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Text = "Welcome to .NET MAUI!"
-				}
-			}
-		};
+        var ly = new HorizontalStackLayout
+        {
+            Children = {
+                new Frame { HeightRequest=500, WidthRequest=500, BackgroundColor= Colors.Red },
+                new Frame { HeightRequest=200, WidthRequest=300, BackgroundColor= Colors.Blue },
+                new Frame { HeightRequest=300, WidthRequest=700, BackgroundColor= Colors.Yellow },
+                new Frame { HeightRequest=600, WidthRequest=200, BackgroundColor= Colors.Black }
+            }
+        };
+
+
+        Content = new ScrollView { Content = ly, Orientation = ScrollOrientation.Horizontal };
 	}
 }
